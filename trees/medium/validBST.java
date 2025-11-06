@@ -13,7 +13,10 @@ class TreeNode {
 }
 
 public class validBST {
-    public boolean checkBST(TreeNode root, int min, int max) {
+    public static boolean isValid(TreeNode root) {
+        return checkBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+    public static boolean checkBST(TreeNode root, long min, long max){
         if (root == null) {
             return true;
         }
@@ -30,8 +33,6 @@ public class validBST {
         root.left = new TreeNode(10);
         root.right = new TreeNode(40);
 
-        validBST validator = new validBST();
-        boolean isValid = validator.checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        System.out.println("Is the tree a valid BST? " + isValid);
+        System.out.println("Is the tree a valid BST? " + isValid(root));
     }
 }
